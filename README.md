@@ -38,10 +38,6 @@ search-engine-project/
 
 1. **Install MongoDB** (if not already installed)
    ```bash
-   # macOS
-   brew install mongodb-community
-   brew services start mongodb-community
-   
    # Ubuntu
    sudo apt install mongodb
    sudo systemctl start mongodb
@@ -96,13 +92,7 @@ Query: "Geoffrey Hinton" (author search)
    pip install -r requirements.txt
    ```
 
-2. **Prepare image dataset**
-   ```bash
-   mkdir sample_images
-   # Add 20-30 images to this folder
-   ```
-
-3. **Run the application**
+2. **Run the application**
    ```bash
    python main.py
    ```
@@ -115,11 +105,10 @@ The main application offers:
 3. **View statistics** - Database information
 
 ### Example Workflow
-1. Add 20-30 images to `sample_images/` folder
-2. Run `python main.py`
-3. Choose option 1 to index images
-4. Choose option 2 to search with a query image
-5. View results visually with matplotlib
+1. Run `python main.py`
+2. Choose option 1 to index images
+3. Choose option 2 to search with a query image
+4. View results visually with matplotlib
 
 ## Technical Details
 
@@ -140,8 +129,6 @@ The main application offers:
 ### System Requirements
 - Python 3.8+
 - MongoDB 4.0+
-- 4GB RAM minimum
-- GPU recommended for faster image processing (optional)
 
 ### Python Packages
 See individual `requirements.txt` files in each subdirectory.
@@ -157,30 +144,6 @@ See individual `requirements.txt` files in each subdirectory.
 - First run downloads ViT model (~300MB)
 - GPU significantly speeds up embedding generation
 - Supported image formats: JPG, PNG, BMP, GIF, TIFF
-
-## Troubleshooting
-
-**MongoDB Connection Error**
-```bash
-# Check if MongoDB is running
-# macOS/Linux
-brew services list  # or: systemctl status mongodb
-
-# Start MongoDB if needed
-brew services start mongodb-community
-```
-
-**Model Download Issues**
-```bash
-# Set HuggingFace cache directory
-export TRANSFORMERS_CACHE=/path/to/cache
-```
-
-**Out of Memory**
-```bash
-# Reduce batch size or use CPU instead of GPU
-# Edit image_embeddings.py: device = 'cpu'
-```
 
 ## Future Enhancements
 
